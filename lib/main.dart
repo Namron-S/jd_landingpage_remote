@@ -26,7 +26,6 @@ class MyHomePage extends StatelessWidget {
 
   Widget getBigSbwyPic(Size size) {
     return Container(
-      padding: EdgeInsets.only(bottom: 20.0),
       child: Placeholder(),
       width: size.width,
       height: size.width / 4,
@@ -51,6 +50,7 @@ class MyHomePage extends StatelessWidget {
     const constHeaderFontSize = 30.0;
     const constLeftPadding = 30.0;
     const constRightPadding = 30.0;
+    const constTopPadding = 20.0;
 
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
@@ -102,10 +102,9 @@ class MyHomePage extends StatelessWidget {
     Widget textSection = Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: EdgeInsets.only(left: constLeftPadding, right: 20.0),
+            padding: EdgeInsets.only(right: size.width / 15),
             child: Placeholder(
               fallbackWidth: size.width / 4,
               fallbackHeight: size.width / 4,
@@ -113,7 +112,6 @@ class MyHomePage extends StatelessWidget {
           ),
           Flexible(
             child: Container(
-              padding: EdgeInsets.only(right: constRightPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -144,10 +142,22 @@ class MyHomePage extends StatelessWidget {
 
     Widget mainBody = ListView(children: [
       getBigSbwyPic(size),
-      textSection,
-      FlutterLogo(),
-      FlutterLogo(),
-      FlutterLogo(),
+      Padding(
+          padding: EdgeInsets.fromLTRB(
+              constLeftPadding, constTopPadding, constRightPadding, 0),
+          child: textSection),
+      Padding(
+          padding: EdgeInsets.fromLTRB(
+              constLeftPadding, constTopPadding, constRightPadding, 0),
+          child: Placeholder()),
+      Padding(
+          padding: EdgeInsets.fromLTRB(
+              constLeftPadding, constTopPadding, constRightPadding, 0),
+          child: Placeholder()),
+      Padding(
+          padding: EdgeInsets.fromLTRB(
+              constLeftPadding, constTopPadding, constRightPadding, 0),
+          child: Placeholder()),
     ]);
 
     Widget bottomSheet = Container(
