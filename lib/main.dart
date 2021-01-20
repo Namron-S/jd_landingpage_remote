@@ -43,8 +43,13 @@ class MyHomePage extends StatelessWidget {
     */
   }
 
-  Widget getNewsStripe() {
-    return Placeholder();
+  Widget getNewsStripe(String header) {
+    return Row(children: [
+      Placeholder(),
+      Column(
+        children: [Text('header: $header'), Text('lorem Ipsum')],
+      )
+    ]);
   }
 
   @override
@@ -150,9 +155,9 @@ class MyHomePage extends StatelessWidget {
           'NEWS',
           style: TextStyle(color: Colors.yellow, fontSize: constHeaderFontSize),
         ),
-        getNewsStripe(),
-        getNewsStripe(),
-        getNewsStripe(),
+        getNewsStripe('Monday | 26.10.2020'),
+        getNewsStripe('Wednesday | 21.10.2020'),
+        getNewsStripe('Tuesday | 06.10.2020'),
       ],
     );
 
