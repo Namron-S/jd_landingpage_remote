@@ -32,8 +32,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const iconSize = 15.0;
-    const fontSize = 8.0;
+    const iconSize = 25.0;
+    const fontSize = 14.0;
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
 
