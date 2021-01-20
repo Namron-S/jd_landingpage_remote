@@ -34,6 +34,8 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     const iconSize = 25.0;
     const fontSize = 14.0;
+    const headerFontSize = 20.0;
+
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
 
@@ -92,9 +94,19 @@ class MyHomePage extends StatelessWidget {
           Flexible(
             child: Column(
               children: [
-                Text('Subway Deventer Centrum'),
-                Text(
-                  constStrLoremIpsum,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Text('Subway Deventer Centrum',
+                      style: TextStyle(
+                          fontSize: headerFontSize,
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Text(
+                    constStrLoremIpsum,
+                  ),
                 ),
                 Text(
                   constStrNullamDictum,
