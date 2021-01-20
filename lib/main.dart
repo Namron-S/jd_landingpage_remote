@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
       title: 'Subway Landingpage',
       theme: ThemeData(
         primaryColor: Colors.white,
@@ -25,6 +26,7 @@ class MyHomePage extends StatelessWidget {
 
   Widget getBigSbwyPic(Size size) {
     return Container(
+      padding: EdgeInsets.only(bottom: 20.0),
       child: Placeholder(),
       width: size.width,
       height: size.width / 4,
@@ -44,9 +46,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const iconSize = 25.0;
-    const fontSize = 14.0;
-    const headerFontSize = 20.0;
+    const constIconSize = 25.0;
+    const constFontSize = 14.0;
+    const constHeaderFontSize = 30.0;
+    const constLeftPadding = 30.0;
+    const constRightPadding = 30.0;
 
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
@@ -61,10 +65,10 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.location_on, color: Colors.green, size: iconSize),
+            Icon(Icons.location_on, color: Colors.green, size: constIconSize),
             Text(
               'Subway Deventer Centrum | Smedenstraat 14.',
-              style: TextStyle(fontSize: fontSize),
+              style: TextStyle(fontSize: constFontSize),
             ),
           ],
         ),
@@ -75,11 +79,11 @@ class MyHomePage extends StatelessWidget {
             Icon(
               Icons.phone,
               color: Colors.green,
-              size: iconSize,
+              size: constIconSize,
             ),
             Text(
               '0570 745 108',
-              style: TextStyle(fontSize: fontSize),
+              style: TextStyle(fontSize: constFontSize),
             ),
           ],
         ),
@@ -88,8 +92,8 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.account_circle_outlined,
-                color: Colors.green, size: iconSize),
-            Icon(Icons.menu, color: Colors.green, size: iconSize),
+                color: Colors.green, size: constIconSize),
+            Icon(Icons.menu, color: Colors.green, size: constIconSize),
           ],
         )
       ],
@@ -97,33 +101,41 @@ class MyHomePage extends StatelessWidget {
 
     Widget textSection = Container(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Placeholder(
-            fallbackWidth: size.width / 3,
-            fallbackHeight: size.width / 3,
+          Container(
+            padding: EdgeInsets.only(left: constLeftPadding, right: 20.0),
+            child: Placeholder(
+              fallbackWidth: size.width / 4,
+              fallbackHeight: size.width / 4,
+            ),
           ),
           Flexible(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: Text('Subway Deventer Centrum',
-                      style: TextStyle(
-                          fontSize: headerFontSize,
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    constStrLoremIpsum,
+            child: Container(
+              padding: EdgeInsets.only(right: constRightPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: Text('Subway Deventer Centrum',
+                        style: TextStyle(
+                            fontSize: constHeaderFontSize,
+                            color: Colors.green,
+                            fontWeight: FontWeight.bold)),
                   ),
-                ),
-                Text(
-                  constStrNullamDictum,
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text(
+                      constStrLoremIpsum,
+                    ),
+                  ),
+                  Text(
+                    constStrNullamDictum,
+                  )
+                ],
+              ),
             ),
           )
         ],
