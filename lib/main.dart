@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Subway Landingpage',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -27,9 +28,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Subway'),
       ),
-      body: Container(
-        child: FlutterLogo(),
-      ),
+      body: ListView(children: [FlutterLogo(), FlutterLogo(), FlutterLogo()]),
     );
   }
 }
