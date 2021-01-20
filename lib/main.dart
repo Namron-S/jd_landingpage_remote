@@ -22,6 +22,16 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key}) : super(key: key);
 
+  Widget getBigSbwyPic(BuildContext context) {
+    MediaQueryData media = MediaQuery.of(context);
+    Size size = media.size;
+    return Container(
+      child: Placeholder(),
+      width: size.width,
+      height: size.width / 4,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const iconSize = 15.0;
@@ -72,7 +82,7 @@ class MyHomePage extends StatelessWidget {
     ));
 
     Widget mainBody = ListView(children: [
-      FlutterLogo(),
+      getBigSbwyPic(context),
       FlutterLogo(),
       FlutterLogo(),
       FlutterLogo(),
