@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Subway Landingpage',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
       ),
       home: MyHomePage(),
     );
@@ -24,9 +24,30 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const iconSize = 12.0;
+    const fontSize = 8.0;
     Widget titleSection = Container(
         child: Row(
-      children: [FlutterLogo(), Text('xxx')],
+      children: [
+        FlutterLogo(),
+        Icon(Icons.location_on, color: Colors.green, size: iconSize),
+        Text(
+          'Subway Deventer Centrum | Smedenstraat 14.',
+          style: TextStyle(fontSize: fontSize),
+        ),
+        Icon(
+          Icons.phone,
+          color: Colors.green,
+          size: iconSize,
+        ),
+        Text(
+          '0570 745 108',
+          style: TextStyle(fontSize: fontSize),
+        ),
+        Icon(Icons.account_circle_outlined,
+            color: Colors.green, size: iconSize),
+        Icon(Icons.menu, color: Colors.green)
+      ],
     ));
 
     Widget mainBody = ListView(children: [
