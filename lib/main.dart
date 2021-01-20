@@ -22,9 +22,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key}) : super(key: key);
 
-  Widget getBigSbwyPic(BuildContext context) {
-    MediaQueryData media = MediaQuery.of(context);
-    Size size = media.size;
+  Widget getBigSbwyPic(Size size) {
     return Container(
       child: Placeholder(),
       width: size.width,
@@ -36,6 +34,8 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     const iconSize = 15.0;
     const fontSize = 8.0;
+    MediaQueryData media = MediaQuery.of(context);
+    Size size = media.size;
 
     Widget titleSection = Container(
         child: Row(
@@ -81,9 +81,24 @@ class MyHomePage extends StatelessWidget {
       ],
     ));
 
+    Widget textSection = Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Placeholder(
+            fallbackWidth: size.width / 3,
+            fallbackHeight: size.width / 3,
+          ),
+          Column(
+            children: [Text('Subway Deventer Centrum'), Text('Lorem Ipsum')],
+          )
+        ],
+      ),
+    );
+
     Widget mainBody = ListView(children: [
-      getBigSbwyPic(context),
-      FlutterLogo(),
+      getBigSbwyPic(size),
+      textSection,
       FlutterLogo(),
       FlutterLogo(),
       FlutterLogo(),
