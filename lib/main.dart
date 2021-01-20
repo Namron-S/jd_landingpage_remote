@@ -24,11 +24,31 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget titleSection = Container(
+        child: Row(
+      children: [FlutterLogo(), Text('xxx')],
+    ));
+
+    Widget mainBody = ListView(children: [
+      FlutterLogo(),
+      FlutterLogo(),
+      FlutterLogo(),
+      FlutterLogo(),
+      FlutterLogo(),
+    ]);
+
+    Widget bottomSheet = Container(
+      child: Row(
+        children: [Text('xxx'), Text('xxx')],
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Subway'),
+        title: titleSection,
       ),
-      body: ListView(children: [FlutterLogo(), FlutterLogo(), FlutterLogo()]),
+      body: mainBody,
+      bottomSheet: bottomSheet,
     );
   }
 }
