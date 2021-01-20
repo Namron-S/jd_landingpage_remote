@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'dart:io'; //not supported for web
 
 void main() {
   runApp(MyApp());
@@ -28,6 +29,17 @@ class MyHomePage extends StatelessWidget {
       width: size.width,
       height: size.width / 4,
     );
+
+    /*
+    //Problem: The package dart.io is not supported in web-projects. So
+    // Image.file(File('path')) is not working.
+    //see also: https://stackoverflow.com/a/65010513/8120214
+    return Container(
+      child: Image.file(File('graphics/PIcBigSbwy.png')),
+      width: size.width,
+      height: size.width / 4,
+    );
+    */
   }
 
   @override
