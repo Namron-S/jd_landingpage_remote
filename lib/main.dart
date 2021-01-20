@@ -29,7 +29,7 @@ class MyHomePage extends StatelessWidget {
 
     Widget titleSection = Container(
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: [
         FlutterLogo(),
