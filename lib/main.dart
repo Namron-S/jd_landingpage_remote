@@ -43,6 +43,10 @@ class MyHomePage extends StatelessWidget {
     */
   }
 
+  Widget getNewsStripe() {
+    return Placeholder();
+  }
+
   @override
   Widget build(BuildContext context) {
     const constIconSize = 25.0;
@@ -140,6 +144,18 @@ class MyHomePage extends StatelessWidget {
       ),
     );
 
+    Widget newsSection = Column(
+      children: [
+        Text(
+          'NEWS',
+          style: TextStyle(color: Colors.yellow, fontSize: constHeaderFontSize),
+        ),
+        getNewsStripe(),
+        getNewsStripe(),
+        getNewsStripe(),
+      ],
+    );
+
     Widget mainBody = ListView(children: [
       getBigSbwyPic(size),
       Padding(
@@ -149,11 +165,7 @@ class MyHomePage extends StatelessWidget {
       Padding(
           padding: EdgeInsets.fromLTRB(
               constLeftPadding, constTopPadding, constRightPadding, 0),
-          child: Placeholder()),
-      Padding(
-          padding: EdgeInsets.fromLTRB(
-              constLeftPadding, constTopPadding, constRightPadding, 0),
-          child: Placeholder()),
+          child: newsSection),
       Padding(
           padding: EdgeInsets.fromLTRB(
               constLeftPadding, constTopPadding, constRightPadding, 0),
