@@ -55,7 +55,6 @@ class MyHomePage extends StatelessWidget {
   Widget getNewsStripe(String header, Size size) {
     return IntrinsicHeight(
       child: Container(
-        //color: Colors.red,
         padding: EdgeInsets.all(5),
         margin: EdgeInsets.only(bottom: 20.0),
         decoration: BoxDecoration(
@@ -71,9 +70,8 @@ class MyHomePage extends StatelessWidget {
               ),
               Flexible(
                 child: Container(
-                  //color: Colors.red,
-                  padding: EdgeInsets.all(20.0),
-                  margin: EdgeInsets.only(right: 60.0),
+                  padding: EdgeInsets.all(10.0),
+                  margin: EdgeInsets.only(right: 50.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -91,13 +89,20 @@ class MyHomePage extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  FlatButton(
-                    color: Colors.yellow[600],
-                    child: Text(
-                      'Find out more',
-                      style: TextStyle(color: Colors.green),
+                  Container(
+                    margin: EdgeInsets.only(
+                      bottom: 15,
                     ),
-                    onPressed: () => print('find out more was pressed'),
+                    child: FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      color: Colors.yellow[600],
+                      child: Text(
+                        'Find out more',
+                        style: TextStyle(color: Colors.green),
+                      ),
+                      onPressed: () => print('find out more was pressed'),
+                    ),
                   ),
                 ],
               )
