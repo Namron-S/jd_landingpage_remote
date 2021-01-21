@@ -1,6 +1,8 @@
 //Todo: PlaceHolder round corners -> richtige Bilder
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 //import 'dart:io'; //not supported for web
 
 void main() {
@@ -232,7 +234,7 @@ class MyHomePage extends StatelessWidget {
     ]);
 
     Widget bottomNavBar = Container(
-      height: size.height / 8,
+      height: size.height / 7,
       color: Colors.green[800],
       child: Column(
         children: [
@@ -251,9 +253,21 @@ class MyHomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.ac_unit),
-              Icon(Icons.access_alarms_outlined),
-              Icon(Icons.access_time_sharp)
+              IconButton(
+                  icon: FaIcon(FontAwesomeIcons.facebookSquare),
+                  onPressed: () {
+                    print("Pressed");
+                  }),
+              IconButton(
+                  icon: FaIcon(FontAwesomeIcons.google),
+                  onPressed: () {
+                    print("Pressed");
+                  }),
+              IconButton(
+                  icon: FaIcon(FontAwesomeIcons.linkedin),
+                  onPressed: () {
+                    print("Pressed");
+                  }),
             ],
           )
         ],
