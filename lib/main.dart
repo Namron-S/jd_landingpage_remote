@@ -52,31 +52,44 @@ class MyHomePage extends StatelessWidget {
     */
   }
 
-  Widget getNewsStripe(String header) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Placeholder(),
-          Column(
-            children: [
-              Text(header,
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: constNewsHeaderFontSize,
-                  )),
-              Text('lorem Ipsum')
-            ],
-          ),
-          FlatButton(
-            color: Colors.yellow[600],
-            child: Text(
-              'Find out more',
-              style: TextStyle(color: Colors.green),
+  Widget getNewsStripe(String header, Size size) {
+    return IntrinsicHeight(
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Placeholder(
+              fallbackWidth: size.width / 6,
+              fallbackHeight: size.width / 6,
             ),
-            onPressed: () => print('find out more was pressed'),
-          )
-        ]);
+            Flexible(
+              child: Column(
+                children: [
+                  Text(header,
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: constNewsHeaderFontSize,
+                      )),
+                  Text('\n'),
+                  Text(constStrNullamDictum)
+                ],
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FlatButton(
+                  color: Colors.yellow[600],
+                  child: Text(
+                    'Find out more',
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  onPressed: () => print('find out more was pressed'),
+                ),
+              ],
+            )
+          ]),
+    );
   }
 
   @override
@@ -175,9 +188,9 @@ class MyHomePage extends StatelessWidget {
           'NEWS',
           style: TextStyle(color: Colors.yellow, fontSize: constHeaderFontSize),
         ),
-        getNewsStripe('Monday | 26.10.2020'),
-        getNewsStripe('Wednesday | 21.10.2020'),
-        getNewsStripe('Tuesday | 06.10.2020'),
+        getNewsStripe('Monday | 26.10.2020', size),
+        getNewsStripe('Wednesday | 21.10.2020', size),
+        getNewsStripe('Tuesday | 06.10.2020', size),
       ],
     );
 
