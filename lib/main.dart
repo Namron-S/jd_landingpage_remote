@@ -54,47 +54,55 @@ class MyHomePage extends StatelessWidget {
 
   Widget getNewsStripe(String header, Size size) {
     return IntrinsicHeight(
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Placeholder(
-              fallbackWidth: size.width / 6,
-              fallbackHeight: size.width / 6,
-            ),
-            Flexible(
-              child: Container(
-                //color: Colors.red,
-                padding: EdgeInsets.all(20.0),
-                margin: EdgeInsets.only(right: 60.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(header,
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: constNewsHeaderFontSize,
-                        )),
-                    Text('\n'),
-                    Text(constStrNullamDictum)
-                  ],
+      child: Container(
+        //color: Colors.red,
+        padding: EdgeInsets.all(5),
+        margin: EdgeInsets.only(bottom: 20.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            color: Colors.white),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Placeholder(
+                fallbackWidth: size.width / 6,
+                fallbackHeight: size.width / 6,
+              ),
+              Flexible(
+                child: Container(
+                  //color: Colors.red,
+                  padding: EdgeInsets.all(20.0),
+                  margin: EdgeInsets.only(right: 60.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(header,
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: constNewsHeaderFontSize,
+                          )),
+                      Text('\n'),
+                      Text(constStrNullamDictum)
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                FlatButton(
-                  color: Colors.yellow[600],
-                  child: Text(
-                    'Find out more',
-                    style: TextStyle(color: Colors.green),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FlatButton(
+                    color: Colors.yellow[600],
+                    child: Text(
+                      'Find out more',
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    onPressed: () => print('find out more was pressed'),
                   ),
-                  onPressed: () => print('find out more was pressed'),
-                ),
-              ],
-            )
-          ]),
+                ],
+              )
+            ]),
+      ),
     );
   }
 
