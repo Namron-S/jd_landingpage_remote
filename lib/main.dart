@@ -68,9 +68,12 @@ class MyHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Placeholder(
-                fallbackWidth: size.width / 6,
-                fallbackHeight: size.width / 6,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Placeholder(
+                  fallbackWidth: size.width / 6,
+                  fallbackHeight: size.width / 6,
+                ),
               ),
               Flexible(
                 child: Container(
@@ -170,9 +173,12 @@ class MyHomePage extends StatelessWidget {
         children: [
           Container(
             padding: EdgeInsets.only(right: size.width / 15),
-            child: Placeholder(
-              fallbackWidth: size.width / 4,
-              fallbackHeight: size.width / 4,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Placeholder(
+                fallbackWidth: size.width / 4,
+                fallbackHeight: size.width / 4,
+              ),
             ),
           ),
           Flexible(
