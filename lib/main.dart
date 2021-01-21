@@ -24,6 +24,15 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key}) : super(key: key);
 
+  //style-constants:
+  static const constIconSize = 25.0;
+  static const constFontSize = 14.0;
+  static const constHeaderFontSize = 30.0;
+  static const constNewsHeaderFontSize = 20.0;
+  static const constLeftPadding = 30.0;
+  static const constRightPadding = 30.0;
+  static const constTopPadding = 20.0;
+
   Widget getBigSbwyPic(Size size) {
     return Container(
       child: Placeholder(),
@@ -44,23 +53,34 @@ class MyHomePage extends StatelessWidget {
   }
 
   Widget getNewsStripe(String header) {
-    return Row(children: [
-      Placeholder(),
-      Column(
-        children: [Text('header: $header'), Text('lorem Ipsum')],
-      )
-    ]);
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Placeholder(),
+          Column(
+            children: [
+              Text(header,
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: constNewsHeaderFontSize,
+                  )),
+              Text('lorem Ipsum')
+            ],
+          ),
+          OutlinedButton(
+            style: ButtonStyle(),
+            child: Text(
+              'Find out more',
+              style: TextStyle(color: Colors.green),
+            ),
+            onPressed: () => print('find out more was pressed'),
+          )
+        ]);
   }
 
   @override
   Widget build(BuildContext context) {
-    const constIconSize = 25.0;
-    const constFontSize = 14.0;
-    const constHeaderFontSize = 30.0;
-    const constLeftPadding = 30.0;
-    const constRightPadding = 30.0;
-    const constTopPadding = 20.0;
-
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
 
