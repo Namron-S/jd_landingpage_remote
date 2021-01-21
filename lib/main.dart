@@ -1,3 +1,5 @@
+//Todo: PlaceHolder round corners -> richtige Bilder
+
 import 'package:flutter/material.dart';
 //import 'dart:io'; //not supported for web
 
@@ -204,7 +206,7 @@ class MyHomePage extends StatelessWidget {
     Widget newsSection = Column(
       children: [
         Text(
-          'NEWS',
+          'NEWS\n',
           style: TextStyle(color: Colors.yellow, fontSize: constHeaderFontSize),
         ),
         getNewsStripe('Monday | 26.10.2020', size),
@@ -229,18 +231,40 @@ class MyHomePage extends StatelessWidget {
           child: Placeholder()),
     ]);
 
-    Widget bottomSheet = Container(
-      child: Row(
-        children: [Text('xxx'), Text('xxx')],
+    Widget bottomNavBar = Container(
+      height: size.height / 8,
+      color: Colors.green[800],
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 5, bottom: 10),
+            child: Text(
+              '\u00a9 2020 | Subways NL | Contact | Menu | Algemene Voorwaarden | Werken bij Subways',
+              style: TextStyle(color: Colors.white, fontSize: 10),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: 5),
+            child: Text('Volg ons op',
+                style: TextStyle(color: Colors.orangeAccent, fontSize: 13)),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.ac_unit),
+              Icon(Icons.access_alarms_outlined),
+              Icon(Icons.access_time_sharp)
+            ],
+          )
+        ],
       ),
     );
-
     return Scaffold(
       appBar: AppBar(
         title: titleSection,
       ),
       body: mainBody,
-      bottomSheet: bottomSheet,
+      bottomNavigationBar: bottomNavBar,
     );
   }
 
