@@ -68,8 +68,8 @@ class MyHomePage extends StatelessWidget {
               Text('lorem Ipsum')
             ],
           ),
-          OutlinedButton(
-            style: ButtonStyle(),
+          FlatButton(
+            color: Colors.yellow[600],
             child: Text(
               'Find out more',
               style: TextStyle(color: Colors.green),
