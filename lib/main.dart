@@ -63,16 +63,22 @@ class MyHomePage extends StatelessWidget {
               fallbackHeight: size.width / 6,
             ),
             Flexible(
-              child: Column(
-                children: [
-                  Text(header,
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: constNewsHeaderFontSize,
-                      )),
-                  Text('\n'),
-                  Text(constStrNullamDictum)
-                ],
+              child: Container(
+                //color: Colors.red,
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.only(right: 60.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(header,
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: constNewsHeaderFontSize,
+                        )),
+                    Text('\n'),
+                    Text(constStrNullamDictum)
+                  ],
+                ),
               ),
             ),
             Column(
