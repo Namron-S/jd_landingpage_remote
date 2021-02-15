@@ -54,12 +54,9 @@ class MyHomePage extends StatelessWidget {
   static const constRightPadding = 30.0;
   static const constTopPadding = 20.0;
 
-  Widget getBigSbwyPic(Size size) {
-    return Container(
-      child: Placeholder(),
-      width: size.width,
-      height: size.width / 4,
-    );
+  Widget getHeaderPicture(Size size) {
+    return Image.network(//ids: 1081,
+        'https://picsum.photos/id/214/${size.width}/${size.width / 8}');
   }
 
   Widget getNewsStripe(String header, Size size) {
@@ -230,7 +227,7 @@ class MyHomePage extends StatelessWidget {
     );
 
     Widget mainBody = ListView(children: [
-      getBigSbwyPic(size),
+      getHeaderPicture(size),
       Padding(
           padding: EdgeInsets.fromLTRB(
               constLeftPadding, constTopPadding, constRightPadding, 0),
