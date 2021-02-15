@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      title: 'Subway Landingpage',
+      title: 'JD-Company Landingpage',
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
@@ -141,7 +141,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             Icon(Icons.location_on, color: Colors.green, size: constIconSize),
             Text(
-              'Subway Deventer Centrum | Smedenstraat 14.',
+              'JD-Company JD City | JD-street 14.',
               style: TextStyle(fontSize: constFontSize),
             ),
           ],
@@ -156,7 +156,7 @@ class MyHomePage extends StatelessWidget {
               size: constIconSize,
             ),
             Text(
-              '0570 745 108',
+              '+1 745 108',
               style: TextStyle(fontSize: constFontSize),
             ),
           ],
@@ -194,7 +194,7 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
-                    child: Text('Subway Deventer Centrum',
+                    child: Text('General Informations',
                         style: TextStyle(
                             fontSize: constHeaderFontSize,
                             color: Colors.green,
@@ -253,13 +253,13 @@ class MyHomePage extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 5, bottom: 10),
             child: Text(
-              '\u00a9 2020 | Subways NL | Contact | Menu | Algemene Voorwaarden | Werken bij Subways',
+              '\u00a9 2020 | JD-Compnay US | Contact | Menu | Terms of Service | Work for JD-Company',
               style: TextStyle(color: Colors.white, fontSize: 10),
             ),
           ),
           Container(
             margin: EdgeInsets.only(bottom: 5),
-            child: Text('Volg ons op',
+            child: Text('Follow us',
                 style: TextStyle(color: Colors.orangeAccent, fontSize: 13)),
           ),
           Row(
