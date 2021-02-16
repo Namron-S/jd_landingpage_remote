@@ -246,36 +246,35 @@ class MyHomePage extends StatelessWidget {
     ]);
 
     Widget bottomNavBar = Container(
-      height: size.height / 7,
+      //Minimum height: 63 (durch ausprobieren herausgefunden)
+      height: size.height / 8 > 63 ? size.height / 8 : 63,
       color: constMainColor,
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 5, bottom: 10),
+            margin: EdgeInsets.only(top: 5, bottom: 5),
             child: Text(
               '\u00a9 2020 | JD-Compnay US | Contact | Menu | Terms of Service | Work for JD-Company',
               style: TextStyle(color: Colors.white, fontSize: 10),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: 2),
-            child: Text('Follow us',
-                style: TextStyle(color: Colors.black, fontSize: 12)),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
+                  iconSize: size.height / 20,
                   icon: FaIcon(FontAwesomeIcons.facebookSquare),
                   onPressed: () {
                     print("Pressed");
                   }),
               IconButton(
+                  iconSize: size.height / 20,
                   icon: FaIcon(FontAwesomeIcons.google),
                   onPressed: () {
                     print("Pressed");
                   }),
               IconButton(
+                  iconSize: size.height / 20,
                   icon: FaIcon(FontAwesomeIcons.linkedin),
                   onPressed: () {
                     print("Pressed");
