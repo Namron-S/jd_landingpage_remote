@@ -56,8 +56,8 @@ class MyHomePage extends StatelessWidget {
   static const Color constMainColor = Colors.orangeAccent;
 
   Widget getHeaderPicture(Size size) {
-    return Image.network(//ids: 1081,
-        'https://picsum.photos/id/214/${size.width}/${size.width / 8}');
+    return Image.network(
+        'https://picsum.photos/id/214/${(size.width).floor()}/${(size.width / 8).floor()}');
   }
 
   Widget getNewsStripe(String header, Size size) {
@@ -75,7 +75,7 @@ class MyHomePage extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
-                    'https://picsum.photos/id/1073/${size.width / 10}/${size.width / 10}'),
+                    'https://picsum.photos/id/1073/${(size.width / 10).floor()}/${(size.width / 10).floor()}'),
               ),
               Flexible(
                 child: Container(
@@ -182,7 +182,7 @@ class MyHomePage extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(//ids: 1081, 214
-                  'https://picsum.photos/id/1081/${size.width / 4}/${size.width / 4}')
+                  'https://picsum.photos/id/1081/${(size.width / 4).floor()}/${(size.width / 4).floor()}')
 
               /*Placeholder(
                 fallbackWidth: size.width / 4,
@@ -258,9 +258,9 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(bottom: 5),
+            margin: EdgeInsets.only(bottom: 2),
             child: Text('Follow us',
-                style: TextStyle(color: Colors.orangeAccent, fontSize: 13)),
+                style: TextStyle(color: Colors.black, fontSize: 12)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
