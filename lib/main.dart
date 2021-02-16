@@ -128,7 +128,11 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.location_on, color: constMainColor, size: constIconSize),
+            IconButton(
+                icon: Icon(Icons.location_on,
+                    color: constMainColor, size: constIconSize),
+                onPressed: () =>
+                    showAlertDialog(context, 'Open Google Maps...')),
             Text(
               'JD-Company JD City | JD-street 14.',
               style: TextStyle(fontSize: constFontSize),
@@ -139,11 +143,13 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.phone,
-              color: constMainColor,
-              size: constIconSize,
-            ),
+            IconButton(
+                icon: Icon(
+                  Icons.phone,
+                  color: constMainColor,
+                  size: constIconSize,
+                ),
+                onPressed: () => showAlertDialog(context, 'Open Phone App...')),
             Text(
               '+1 745 108',
               style: TextStyle(fontSize: constFontSize),
@@ -154,9 +160,16 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.account_circle_outlined,
-                color: constMainColor, size: constIconSize),
-            Icon(Icons.menu, color: constMainColor, size: constIconSize),
+            IconButton(
+              icon: Icon(Icons.account_circle_outlined,
+                  color: constMainColor, size: constIconSize),
+              onPressed: () =>
+                  showAlertDialog(context, 'Open account settings...'),
+            ),
+            IconButton(
+                icon: Icon(Icons.menu,
+                    color: constMainColor, size: constIconSize),
+                onPressed: () => showAlertDialog(context, 'Open menue...')),
           ],
         )
       ],
