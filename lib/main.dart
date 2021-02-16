@@ -1,20 +1,7 @@
 /*  open issues:
-
-1.  Load images: Problem: The package dart.io is not supported in web-projects. So
-    Image.file(File('path')) is not working.
-    see also: https://stackoverflow.com/a/65010513/8120214
-    -> einen Workaround finden
-
-2.  Code aufräumen: Style-Konstanten (Schriftgröße, Farbe,...) in separate Datei speichern
-    und überall verwenden: hard-coded values vermeiden
-
-3.  App zu 100% "resizable" machen: Wenn das Fenster zu klein wird gibt es
-    einen Bottom Overflow in der News-Section und im Footer.
-
-4.  die richtigen Firmen Logos im Footer finden.
-
-5.  Social Media Section erstellen
-
+1.  App zu 100% "resizable" machen: Wenn das Fenster zu schmal wird gibt es
+    einen Bottom Overflow in der News-Section.
+2.  Icons clickable machen und entsprechende Meldung in einem "Info-Fenster" ausgeben.
 */
 
 import 'package:flutter/material.dart';
@@ -61,6 +48,7 @@ class MyHomePage extends StatelessWidget {
   }
 
   Widget getNewsStripe(String header, Size size) {
+    //>= 890 ist ok für die news Section
     return IntrinsicHeight(
       child: Container(
         padding: EdgeInsets.all(5),
@@ -124,6 +112,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
+    print('${size.width}');
 
     Widget titleSection = Container(
         child: Row(
