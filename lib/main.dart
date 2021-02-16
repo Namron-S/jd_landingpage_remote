@@ -180,13 +180,17 @@ class MyHomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(right: size.width / 15),
+            padding: EdgeInsets.only(right: size.width / 40),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: Placeholder(
+              child: Image.network(//ids: 1081, 214
+                  'https://picsum.photos/id/1081/${size.width / 4}/${size.width / 4}')
+
+              /*Placeholder(
                 fallbackWidth: size.width / 4,
                 fallbackHeight: size.width / 4,
-              ),
+              )*/
+              ,
             ),
           ),
           Flexible(
@@ -235,7 +239,7 @@ class MyHomePage extends StatelessWidget {
       getHeaderPicture(size),
       Padding(
           padding: EdgeInsets.fromLTRB(
-              constLeftPadding, constTopPadding, constRightPadding, 0),
+              constLeftPadding, constTopPadding + 50, constRightPadding, 0),
           child: textSection),
       Padding(
           padding: EdgeInsets.fromLTRB(
