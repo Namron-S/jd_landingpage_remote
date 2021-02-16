@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
         'https://picsum.photos/id/214/${(size.width).floor()}/${(size.width / 8).floor()}');
   }
 
-  Widget getNewsStripe(String header, Size size) {
+  Widget getNewsStripe(String header, Size size, BuildContext ctx) {
     //>= 890 ist ok für die news Section
     return IntrinsicHeight(
       child: Container(
@@ -98,7 +98,8 @@ class MyHomePage extends StatelessWidget {
                         'Find out more',
                         style: TextStyle(color: constMainColor),
                       ),
-                      onPressed: () => print('find out more was pressed'),
+                      onPressed: () =>
+                          showAlertDialog(ctx, 'Find out more\n was pressed'),
                     ),
                   ),
                 ],
@@ -112,7 +113,6 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData media = MediaQuery.of(context);
     Size size = media.size;
-    print('${size.width}');
 
     Widget titleSection = Container(
         child: Row(
@@ -216,9 +216,9 @@ class MyHomePage extends StatelessWidget {
           'NEWS\n',
           style: TextStyle(color: Colors.yellow, fontSize: constHeaderFontSize),
         ),
-        getNewsStripe('Monday | 26.10.2020', size),
-        getNewsStripe('Wednesday | 21.10.2020', size),
-        getNewsStripe('Tuesday | 06.10.2020', size),
+        getNewsStripe('Monday | 26.10.2020', size, context),
+        getNewsStripe('Wednesday | 21.10.2020', size, context),
+        getNewsStripe('Tuesday | 06.10.2020', size, context),
       ],
     );
 
@@ -254,19 +254,19 @@ class MyHomePage extends StatelessWidget {
                   iconSize: size.height / 20,
                   icon: FaIcon(FontAwesomeIcons.facebookSquare),
                   onPressed: () {
-                    print("Pressed");
+                    showAlertDialog(context, 'Follow us on facebook');
                   }),
               IconButton(
                   iconSize: size.height / 20,
                   icon: FaIcon(FontAwesomeIcons.google),
                   onPressed: () {
-                    print("Pressed");
+                    showAlertDialog(context, 'Follow us on Google ;)');
                   }),
               IconButton(
                   iconSize: size.height / 20,
                   icon: FaIcon(FontAwesomeIcons.linkedin),
                   onPressed: () {
-                    print("Pressed");
+                    showAlertDialog(context, 'Follow us on LinkedIn');
                   }),
             ],
           )
