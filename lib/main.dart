@@ -74,10 +74,8 @@ class MyHomePage extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Placeholder(
-                  fallbackWidth: size.width / 6,
-                  fallbackHeight: size.width / 6,
-                ),
+                child: Image.network(
+                    'https://picsum.photos/id/1073/${size.width / 10}/${size.width / 10}'),
               ),
               Flexible(
                 child: Container(
