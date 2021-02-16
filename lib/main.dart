@@ -241,10 +241,6 @@ class MyHomePage extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(
               constLeftPadding, constTopPadding, constRightPadding, 0),
           child: newsSection),
-      Padding(
-          padding: EdgeInsets.fromLTRB(
-              constLeftPadding, constTopPadding, constRightPadding, 0),
-          child: Placeholder()),
     ]);
 
     Widget bottomNavBar = Container(
