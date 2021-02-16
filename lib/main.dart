@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
   static const constLeftPadding = 30.0;
   static const constRightPadding = 30.0;
   static const constTopPadding = 20.0;
-  static const Color mainColor = Colors.orangeAccent;
+  static const Color constMainColor = Colors.orangeAccent;
 
   Widget getHeaderPicture(Size size) {
     return Image.network(//ids: 1081,
@@ -88,7 +88,7 @@ class MyHomePage extends StatelessWidget {
                     children: [
                       Text(header,
                           style: TextStyle(
-                            color: mainColor,
+                            color: constMainColor,
                             fontSize: constNewsHeaderFontSize,
                           )),
                       Text('\n'),
@@ -110,7 +110,7 @@ class MyHomePage extends StatelessWidget {
                       color: Colors.yellow[600],
                       child: Text(
                         'Find out more',
-                        style: TextStyle(color: mainColor),
+                        style: TextStyle(color: constMainColor),
                       ),
                       onPressed: () => print('find out more was pressed'),
                     ),
@@ -132,12 +132,16 @@ class MyHomePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: [
-        FlutterLogo(),
+        Container(
+          child: FlutterLogo(),
+          padding: EdgeInsets.all(2),
+          color: constMainColor,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.location_on, color: mainColor, size: constIconSize),
+            Icon(Icons.location_on, color: constMainColor, size: constIconSize),
             Text(
               'JD-Company JD City | JD-street 14.',
               style: TextStyle(fontSize: constFontSize),
@@ -150,7 +154,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             Icon(
               Icons.phone,
-              color: mainColor,
+              color: constMainColor,
               size: constIconSize,
             ),
             Text(
@@ -164,8 +168,8 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.account_circle_outlined,
-                color: mainColor, size: constIconSize),
-            Icon(Icons.menu, color: mainColor, size: constIconSize),
+                color: constMainColor, size: constIconSize),
+            Icon(Icons.menu, color: constMainColor, size: constIconSize),
           ],
         )
       ],
@@ -195,7 +199,7 @@ class MyHomePage extends StatelessWidget {
                     child: Text('General Informations',
                         style: TextStyle(
                             fontSize: constHeaderFontSize,
-                            color: mainColor,
+                            color: constMainColor,
                             fontWeight: FontWeight.bold)),
                   ),
                   Padding(
@@ -245,7 +249,7 @@ class MyHomePage extends StatelessWidget {
 
     Widget bottomNavBar = Container(
       height: size.height / 7,
-      color: mainColor,
+      color: constMainColor,
       child: Column(
         children: [
           Container(
