@@ -45,52 +45,70 @@ class MyHomePage extends StatelessWidget {
   }
 
   Widget getNewsStripe(String header, Size size, BuildContext ctx) {
-    //>= 890 ist ok für die news Section
-    return Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.network(
-                'https://picsum.photos/id/1073/${(size.width / 5).floor()}/${(size.width / 5).floor()}'),
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.blue[100],
+          border: Border.all(
+            color: Colors.white,
           ),
-          Flexible(
-            //Dieses Flexible: ListView akzeptiert nicht "width:Infinity" von der Row
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: size.width / 5,
-                //maxWidth: 400,
-              ),
-              child: Container(
-                //Container: Nur für Debugging da, um den Bereich rot zu sehn
-                color: Colors.red,
-                child: ListView(
-                  children: [
-                    Text(header,
-                        style: TextStyle(
-                          color: constMainColor,
-                          fontSize: constNewsHeaderFontSize,
-                        )),
-                    Text('\n'),
-                    Text(constStrNullamDictum) //Text(constStrNullamDictum)
-                  ],
+          borderRadius: BorderRadius.all(Radius.circular(20))),
+      // color: Colors.grey,
+      margin: EdgeInsets.only(
+        bottom: 10,
+      ),
+      child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                  'https://picsum.photos/id/1073/${(size.width / 7).floor()}/${(size.width / 7).floor()}'),
+            ),
+            Flexible(
+              //Dieses Flexible: ListView akzeptiert nicht "width:Infinity" von der Row
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: size.width / 7,
+                ),
+                child: Container(
+                  margin: EdgeInsets.only(left: 5, right: 5),
+                  //color: Colors.red,
+                  child: Column(
+                    children: [
+                      Text(header,
+                          style: TextStyle(
+                            color: constMainColor,
+                            fontSize: constNewsHeaderFontSize,
+                          )),
+                      Flexible(
+                        child: ListView(
+                          children: [
+                            Text('\n'),
+                            Text(constStrNullamDictum +
+                                constStrLoremIpsum +
+                                constStrNullamDictum) //Text(constStrNullamDictum)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          FlatButton(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            color: Colors.yellow[600],
-            child: Text(
-              'Find out more',
-              style: TextStyle(color: constMainColor),
-            ),
-            onPressed: () =>
-                showAlertDialog(ctx, 'Find out more\n was pressed'),
-          )
-        ]);
+            FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)),
+              color: constMainColor,
+              child: Text(
+                'Find out more',
+              ),
+              onPressed: () =>
+                  showAlertDialog(ctx, 'Find out more\n was pressed'),
+            )
+          ]),
+    );
   }
 
   @override
@@ -118,7 +136,7 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () =>
                     showAlertDialog(context, 'Open Google Maps...')),
             Text(
-              'JD-Company JD City | JD-street 14.',
+              'JD City | JD-street 14.',
               style: TextStyle(fontSize: constFontSize),
             ),
           ],
@@ -211,11 +229,14 @@ class MyHomePage extends StatelessWidget {
       children: [
         Text(
           'NEWS\n',
-          style: TextStyle(color: Colors.yellow, fontSize: constHeaderFontSize),
+          style:
+              TextStyle(color: constMainColor, fontSize: constHeaderFontSize),
         ),
         getNewsStripe('Monday | 26.10.2020', size, context),
+        getNewsStripe('Friday | 23.10.2020', size, context),
+        getNewsStripe('Thursday | 22.10.2020', size, context),
         getNewsStripe('Wednesday | 21.10.2020', size, context),
-        getNewsStripe('Tuesday | 06.10.2020', size, context),
+        getNewsStripe('Tuesday | 20.10.2020', size, context),
       ],
     );
 
