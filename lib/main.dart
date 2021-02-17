@@ -3,11 +3,8 @@
     einen Bottom Overflow in der News-Section.
 2.  Icons clickable machen und entsprechende Meldung in einem "Info-Fenster" ausgeben.
 */
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-//import 'dart:io'; //not supported for web
 
 void main() {
   runApp(MyApp());
@@ -49,64 +46,51 @@ class MyHomePage extends StatelessWidget {
 
   Widget getNewsStripe(String header, Size size, BuildContext ctx) {
     //>= 890 ist ok für die news Section
-    return IntrinsicHeight(
-      child: Container(
-        padding: EdgeInsets.all(5),
-        margin: EdgeInsets.only(bottom: 20.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: Colors.white),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                    'https://picsum.photos/id/1073/${(size.width / 10).floor()}/${(size.width / 10).floor()}'),
+    return Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Image.network(
+                'https://picsum.photos/id/1073/${(size.width / 5).floor()}/${(size.width / 5).floor()}'),
+          ),
+          Flexible(
+            //Dieses Flexible: ListView akzeptiert nicht "width:Infinity" von der Row
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: size.width / 5,
+                //maxWidth: 400,
               ),
-              Flexible(
-                child: Container(
-                  padding: EdgeInsets.all(10.0),
-                  margin: EdgeInsets.only(right: 50.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(header,
-                          style: TextStyle(
-                            color: constMainColor,
-                            fontSize: constNewsHeaderFontSize,
-                          )),
-                      Text('\n'),
-                      Text(constStrNullamDictum)
-                    ],
-                  ),
+              child: Container(
+                //Container: Nur für Debugging da, um den Bereich rot zu sehn
+                color: Colors.red,
+                child: ListView(
+                  children: [
+                    Text(header,
+                        style: TextStyle(
+                          color: constMainColor,
+                          fontSize: constNewsHeaderFontSize,
+                        )),
+                    Text('\n'),
+                    Text(constStrNullamDictum) //Text(constStrNullamDictum)
+                  ],
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      bottom: 15,
-                    ),
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      color: Colors.yellow[600],
-                      child: Text(
-                        'Find out more',
-                        style: TextStyle(color: constMainColor),
-                      ),
-                      onPressed: () =>
-                          showAlertDialog(ctx, 'Find out more\n was pressed'),
-                    ),
-                  ),
-                ],
-              )
-            ]),
-      ),
-    );
+            ),
+          ),
+          FlatButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            color: Colors.yellow[600],
+            child: Text(
+              'Find out more',
+              style: TextStyle(color: constMainColor),
+            ),
+            onPressed: () =>
+                showAlertDialog(ctx, 'Find out more\n was pressed'),
+          )
+        ]);
   }
 
   @override
