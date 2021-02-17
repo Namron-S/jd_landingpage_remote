@@ -1,8 +1,3 @@
-/*  open issues:
-1.  App zu 100% "resizable" machen: Wenn das Fenster zu schmal wird gibt es
-    einen Bottom Overflow in der News-Section.
-2.  Icons clickable machen und entsprechende Meldung in einem "Info-Fenster" ausgeben.
-*/
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -237,6 +232,10 @@ class MyHomePage extends StatelessWidget {
         getNewsStripe('Thursday | 22.10.2020', size, context),
         getNewsStripe('Wednesday | 21.10.2020', size, context),
         getNewsStripe('Tuesday | 20.10.2020', size, context),
+        getNewsStripe('Monday | 19.10.2020', size, context),
+        getNewsStripe('Friday | 16.10.2020', size, context),
+        getNewsStripe('Thursday | 15.10.2020', size, context),
+        getNewsStripe('Wednesday | 14.10.2020', size, context),
       ],
     );
 
