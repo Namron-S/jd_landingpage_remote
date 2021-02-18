@@ -289,19 +289,19 @@ class MyHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                  iconSize: size.height / 20,
+                  iconSize: size.height / 25,
                   icon: Icon(Icons.business),
                   onPressed: () {
                     showAlertDialog(context, 'Follow John Doe on ...');
                   }),
               IconButton(
-                  iconSize: size.height / 20,
+                  iconSize: size.height / 25,
                   icon: Icon(Icons.follow_the_signs),
                   onPressed: () {
                     showAlertDialog(context, 'Follow John Doe on ... ');
                   }),
               IconButton(
-                  iconSize: size.height / 20,
+                  iconSize: size.height / 25,
                   icon: Icon(Icons.business_center),
                   onPressed: () {
                     showAlertDialog(context, 'Follow John Doe on ...');
