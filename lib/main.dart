@@ -115,10 +115,8 @@ class MyHomePage extends StatelessWidget {
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8))),
-                      //MaterialStateProperty<TextStyle>
                       textStyle: MaterialStateProperty.all(
                           TextStyle(color: Colors.black)),
-                      //foregroundColor: MaterialStateProperty.all(Colors.black),
                       backgroundColor:
                           MaterialStateProperty.resolveWith(getColor)),
                   onPressed: () =>
