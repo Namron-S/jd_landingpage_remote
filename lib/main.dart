@@ -129,10 +129,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData media = MediaQuery.of(context);
-    Size size = media.size;
+    final MediaQueryData media = MediaQuery.of(context);
+    final Size size = media.size;
 
-    Widget titleSection = Container(
+    final Widget titleSection = Container(
         child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
@@ -193,7 +193,7 @@ class MyHomePage extends StatelessWidget {
       ],
     ));
 
-    Widget textSection = Container(
+    final Widget textSection = Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -241,7 +241,7 @@ class MyHomePage extends StatelessWidget {
       ),
     );
 
-    Widget newsSection = Column(
+    final Widget newsSection = Column(
       children: [
         Text(
           'NEWS\n',
@@ -260,7 +260,7 @@ class MyHomePage extends StatelessWidget {
       ],
     );
 
-    Widget mainBody = ListView(children: [
+    final Widget mainBody = ListView(children: [
       getHeaderPicture(size),
       Padding(
           padding: EdgeInsets.fromLTRB(
@@ -272,7 +272,7 @@ class MyHomePage extends StatelessWidget {
           child: newsSection),
     ]);
 
-    Widget bottomNavBar = Container(
+    final Widget bottomNavBar = Container(
       //Minimum height: 63 (durch ausprobieren herausgefunden)
       height: size.height / 8 > 63 ? size.height / 8 : 63,
       color: constMainColor,
