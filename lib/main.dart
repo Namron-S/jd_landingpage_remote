@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,6 +38,19 @@ class MyHomePage extends StatelessWidget {
   Widget getHeaderPicture(Size size) {
     return Image.network(
         'https://picsum.photos/id/214/${(size.width).floor()}/${(size.width / 8).floor()}');
+  }
+
+  //For getting the Color of a TextButton:
+  Color getColor(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return Colors.deepOrangeAccent;
+    }
+    return constMainColor;
   }
 
   Widget getNewsStripe(String header, Size size, BuildContext ctx) {
@@ -91,16 +106,25 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              color: constMainColor,
-              child: Text(
-                'Find out more',
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: 5,
+                right: 5,
               ),
-              onPressed: () =>
-                  showAlertDialog(ctx, 'Find out more\n was pressed'),
-            )
+              child: TextButton(
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8))),
+                      //MaterialStateProperty<TextStyle>
+                      textStyle: MaterialStateProperty.all(
+                          TextStyle(color: Colors.black)),
+                      //foregroundColor: MaterialStateProperty.all(Colors.black),
+                      backgroundColor:
+                          MaterialStateProperty.resolveWith(getColor)),
+                  onPressed: () =>
+                      showAlertDialog(ctx, 'Find out more\n was pressed'),
+                  child: Text('Find out more')),
+            ),
           ]),
     );
   }
