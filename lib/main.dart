@@ -336,7 +336,7 @@ Future<void> showAlertDialog(BuildContext context, String msg) {
         title: Text('Info'),
         content: Text(msg),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('Ok'),
             onPressed: () {
               Navigator.of(context).pop();
