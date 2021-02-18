@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -269,21 +268,21 @@ class MyHomePage extends StatelessWidget {
             children: [
               IconButton(
                   iconSize: size.height / 20,
-                  icon: FaIcon(FontAwesomeIcons.facebookSquare),
+                  icon: Icon(Icons.business),
                   onPressed: () {
-                    showAlertDialog(context, 'Follow us on facebook');
+                    showAlertDialog(context, 'Follow John Doe on ...');
                   }),
               IconButton(
                   iconSize: size.height / 20,
-                  icon: FaIcon(FontAwesomeIcons.google),
+                  icon: Icon(Icons.follow_the_signs),
                   onPressed: () {
-                    showAlertDialog(context, 'Follow us on Google ;)');
+                    showAlertDialog(context, 'Follow John Doe on ... ');
                   }),
               IconButton(
                   iconSize: size.height / 20,
-                  icon: FaIcon(FontAwesomeIcons.linkedin),
+                  icon: Icon(Icons.business_center),
                   onPressed: () {
-                    showAlertDialog(context, 'Follow us on LinkedIn');
+                    showAlertDialog(context, 'Follow John Doe on ...');
                   }),
             ],
           )
