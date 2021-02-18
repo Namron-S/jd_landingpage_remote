@@ -1,6 +1,6 @@
 {
-    "name": "simply_d",
-    "short_name": "simply_d",
+    "name": "jd_landing_page",
+    "short_name": "js_landding_page",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
