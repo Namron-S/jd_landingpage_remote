@@ -1,12 +1,12 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: MyHomePage(),
+      home: MyHomePage(
+        key: UniqueKey(),
+      ),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({required Key key}) : super(key: key);
 
   //style-constants:
   static const constIconSize = 25.0;
@@ -60,9 +62,9 @@ class MyHomePage extends StatelessWidget {
           border: Border.all(
             color: Colors.white,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+          borderRadius: const BorderRadius.all(Radius.circular(20))),
       // color: Colors.grey,
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         bottom: 10,
       ),
       child: Row(
@@ -82,18 +84,18 @@ class MyHomePage extends StatelessWidget {
                   maxHeight: size.width / 7,
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(left: 5, right: 5),
+                  margin: const EdgeInsets.only(left: 5, right: 5),
                   //color: Colors.red,
                   child: Column(
                     children: [
                       Text(header,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: constMainColor,
                             fontSize: constNewsHeaderFontSize,
                           )),
                       Flexible(
                         child: ListView(
-                          children: [
+                          children: const [
                             Text('\n'),
                             Text(constStrNullamDictum +
                                 constStrLoremIpsum +
@@ -107,7 +109,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 bottom: 5,
                 right: 5,
               ),
@@ -116,12 +118,12 @@ class MyHomePage extends StatelessWidget {
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8))),
                       textStyle: MaterialStateProperty.all(
-                          TextStyle(color: Colors.black)),
+                          const TextStyle(color: Colors.black)),
                       backgroundColor:
                           MaterialStateProperty.resolveWith(getColor)),
                   onPressed: () =>
                       showAlertDialog(ctx, 'Find out more\n was pressed'),
-                  child: Text('Find out more')),
+                  child: const Text('Find out more')),
             ),
           ]),
     );
@@ -132,26 +134,25 @@ class MyHomePage extends StatelessWidget {
     final MediaQueryData media = MediaQuery.of(context);
     final Size size = media.size;
 
-    final Widget titleSection = Container(
-        child: Row(
+    final Widget titleSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: [
         Container(
-          child: FlutterLogo(),
-          padding: EdgeInsets.all(2),
+          padding: const EdgeInsets.all(2),
           color: constMainColor,
+          child: const FlutterLogo(),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-                icon: Icon(Icons.location_on,
+                icon: const Icon(Icons.location_on,
                     color: constMainColor, size: constIconSize),
                 onPressed: () =>
                     showAlertDialog(context, 'Open Google Maps...')),
-            Text(
+            const Text(
               'JD City | JD-street 14.',
               style: TextStyle(fontSize: constFontSize),
             ),
@@ -162,13 +163,13 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.phone,
                   color: constMainColor,
                   size: constIconSize,
                 ),
                 onPressed: () => showAlertDialog(context, 'Open Phone App...')),
-            Text(
+            const Text(
               '+1 745 108',
               style: TextStyle(fontSize: constFontSize),
             ),
@@ -179,71 +180,67 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: Icon(Icons.account_circle_outlined,
+              icon: const Icon(Icons.account_circle_outlined,
                   color: constMainColor, size: constIconSize),
               onPressed: () =>
                   showAlertDialog(context, 'Open account settings...'),
             ),
             IconButton(
-                icon: Icon(Icons.menu,
+                icon: const Icon(Icons.menu,
                     color: constMainColor, size: constIconSize),
                 onPressed: () => showAlertDialog(context, 'Open menue...')),
           ],
         )
       ],
-    ));
+    );
 
-    final Widget textSection = Container(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.only(right: size.width / 40),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(//ids: 1081, 214
-                  'https://picsum.photos/id/1081/${(size.width / 4).floor()}/${(size.width / 4).floor()}')
+    final Widget textSection = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: EdgeInsets.only(right: size.width / 40),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Image.network(//ids: 1081, 214
+                'https://picsum.photos/id/1081/${(size.width / 4).floor()}/${(size.width / 4).floor()}')
 
-              /*Placeholder(
+            /*Placeholder(
                 fallbackWidth: size.width / 4,
                 fallbackHeight: size.width / 4,
               )*/
-              ,
-            ),
+            ,
           ),
-          Flexible(
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: Text('General Informations',
-                        style: TextStyle(
-                            fontSize: constHeaderFontSize,
-                            color: constMainColor,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Text(
-                      constStrLoremIpsum,
-                    ),
-                  ),
-                  Text(
-                    constStrNullamDictum,
-                  )
-                ],
+        ),
+        const Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom: 16.0),
+                child: Text('General Informations',
+                    style: TextStyle(
+                        fontSize: constHeaderFontSize,
+                        color: constMainColor,
+                        fontWeight: FontWeight.bold)),
               ),
-            ),
-          )
-        ],
-      ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  constStrLoremIpsum,
+                ),
+              ),
+              Text(
+                constStrNullamDictum,
+              )
+            ],
+          ),
+        )
+      ],
     );
 
     final Widget newsSection = Column(
       children: [
-        Text(
+        const Text(
           'NEWS\n',
           style:
               TextStyle(color: constMainColor, fontSize: constHeaderFontSize),
@@ -263,11 +260,11 @@ class MyHomePage extends StatelessWidget {
     final Widget mainBody = ListView(children: [
       getHeaderPicture(size),
       Padding(
-          padding: EdgeInsets.fromLTRB(
+          padding: const EdgeInsets.fromLTRB(
               constLeftPadding, constTopPadding + 50, constRightPadding, 0),
           child: textSection),
       Padding(
-          padding: EdgeInsets.fromLTRB(
+          padding: const EdgeInsets.fromLTRB(
               constLeftPadding, constTopPadding, constRightPadding, 0),
           child: newsSection),
     ]);
@@ -279,8 +276,8 @@ class MyHomePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 5, bottom: 5),
-            child: Text(
+            margin: const EdgeInsets.only(top: 5, bottom: 5),
+            child: const Text(
               '\u00a9 2020 | JD-Compnay US | Contact | Menu | Terms of Service | Work for JD-Company',
               style: TextStyle(color: Colors.white, fontSize: 10),
             ),
@@ -290,19 +287,19 @@ class MyHomePage extends StatelessWidget {
             children: [
               IconButton(
                   iconSize: size.height / 25,
-                  icon: Icon(Icons.business),
+                  icon: const Icon(Icons.business),
                   onPressed: () {
                     showAlertDialog(context, 'Follow John Doe on ...');
                   }),
               IconButton(
                   iconSize: size.height / 25,
-                  icon: Icon(Icons.follow_the_signs),
+                  icon: const Icon(Icons.follow_the_signs),
                   onPressed: () {
                     showAlertDialog(context, 'Follow John Doe on ... ');
                   }),
               IconButton(
                   iconSize: size.height / 25,
-                  icon: Icon(Icons.business_center),
+                  icon: const Icon(Icons.business_center),
                   onPressed: () {
                     showAlertDialog(context, 'Follow John Doe on ...');
                   }),
@@ -333,11 +330,11 @@ Future<void> showAlertDialog(BuildContext context, String msg) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Info'),
+        title: const Text('Info'),
         content: Text(msg),
         actions: <Widget>[
           TextButton(
-            child: Text('Ok'),
+            child: const Text('Ok'),
             onPressed: () {
               Navigator.of(context).pop();
             },
